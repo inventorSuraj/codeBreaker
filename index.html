@@ -1,21 +1,56 @@
+HTML File
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CodeBreaker</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="script.js"></script>
-  </head>
-  <body>
+<head>
+  <title>CodeBreaker</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* CSS Goes Here */
+  </style>
+</head>
+<body>
+  <div class="container">
     <h1>CodeBreaker</h1>
-    <div class="container">
-      <div class="input-field">
-        <label for="plainTextInput">Plain Text:</label>
-        <input type="text" id="plainTextInput"/>
+    <form>
+      <div class="form-group">
+        <label for="plain-text">Plain Text:</label>
+        <input type="text" class="form-control" id="plain-text">
       </div>
-      <div class="input-field">
-        <label for="morseCodeInput">Morse Code:</label>
-        <input type="text" id="morseCodeInput" />
+      <div class="form-group">
+        <label for="morse-code">Morse Code:</label>
+        <input type="text" class="form-control" id="morse-code">
       </div>
-    </div>
-  </body>
+    </form>
+  </div>
+  <script>
+    /* JavaScript Goes Here */
+$(document).ready(function() {
+  // Convert plain text to Morse code
+  $('#plain-text').on('input', function() {
+    var plainText = $(this).val();
+    var morseCode = convertToMorseCode(plainText);
+    $('#morse-code').val(morseCode);
+  });
+
+  // Convert Morse code to plain text
+  $('#morse-code').on('input', function() {
+    var morseCode = $(this).val();
+    var plainText = convertToPlainText(morseCode);
+    $('#plain-text').val(plainText);
+  });
+
+  function convertToMorseCode(plainText) {
+    // Your code here
+  }
+
+  function convertToPlainText(morseCode) {
+    // Your code here
+  }
+});
+  </script>
+</body>
 </html>
+
+
