@@ -1,92 +1,21 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Code Breaker</title>
-    <style type="text/css">
-        body { 
-            font-family: sans-serif; 
-            margin: 0 auto;
-            width: 500px;
-        }
-        #form {
-            margin-top: 40px;
-        }
-        input[type="submit"] {
-            display: block;
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #000;
-            background: #eee;
-            font-size: 1.2em;
-        }
-        #result {
-            font-size: 2em;
-            font-family: sans-serif;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Code Breaker</h1>
-    <div id="form">
-        <form action="" method="post">
-            <textarea name="text" rows="5" cols="50" placeholder="Enter text to convert"></textarea>
-            <input type="submit" name="submit" value="Convert" />
-        </form>
+  <head>
+    <title>CodeBreaker</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <h1>CodeBreaker</h1>
+    <div class="container">
+      <div class="input-field">
+        <label for="plainTextInput">Plain Text:</label>
+        <input type="text" id="plainTextInput"/>
+      </div>
+      <div class="input-field">
+        <label for="morseCodeInput">Morse Code:</label>
+        <input type="text" id="morseCodeInput" />
+      </div>
     </div>
-    <div id="result">
-        <?php
-            // function to convert text to morse code
-            function textToMorse($text)
-            {
-                $morse_code = array(
-                    'A'=>'.-', 'B'=>'-...', 'C'=>'-.-.', 'D'=>'-..', 'E'=>'.',
-                    'F'=>'..-.', 'G'=>'--.', 'H'=>'....', 'I'=>'..', 'J'=>'.---',
-                    'K'=>'-.-', 'L'=>'.-..', 'M'=>'--', 'N'=>'-.', 'O'=>'---',
-                    'P'=>'.--.', 'Q'=>'--.-', 'R'=>'.-.', 'S'=>'...', 'T'=>'-',
-                    'U'=>'..-', 'V'=>'...-', 'W'=>'.--', 'X'=>'-..-', 'Y'=>'-.--',
-                    'Z'=>'--..', ' '=>'/'
-                );
-                $result = "";
-                $text_array = str_split(strtoupper($text));
-                foreach ($text_array as $character) {
-                    if (isset($morse_code[$character])) {
-                        $result .= $morse_code[$character] . " ";
-                    }
-                }
-                return $result;
-            }
-            // function to convert morse code to text
-            function morseToText($morse)
-            {
-                $morse_code = array(
-                    '.-'=>'A', '-...'=>'B', '-.-.'=>'C', '-..'=>'D', '.'=>'E',
-                    '..-.'=>'F', '--.'=>'G', '....'=>'H', '..'=>'I', '.---'=>'J',
-                    '-.-'=>'K', '.-..'=>'L', '--'=>'M', '-.'=>'N', '---'=>'O',
-                    '.--.'=>'P', '--.-'=>'Q', '.-.'=>'R', '...'=>'S', '-'=>'T',
-                    '..-'=>'U', '...-'=>'V', '.--'=>'W', '-..-'=>'X', '-.--'=>'Y',
-                    '--..'=>'Z', '/'=>' '
-                );
-                $result = "";
-                $morse_array = explode(" ", $morse);
-                foreach ($morse_array as $character) {
-                    if (isset($morse_code[$character])) {
-                        $result .= $morse_code[$character];
-                    }
-                }
-                return $result;
-            }
-            // Form submit
-            if (isset($_POST["submit"])) {
-                $text = $_POST["text"];
-                if (ctype_alpha($text)) {
-                    $result = textToMorse($text);
-                }
-                else {
-                    $result = morseToText($text);
-                }
-                echo $result;
-            }
-        ?>
-    </div>
-</body>
+  </body>
 </html>
