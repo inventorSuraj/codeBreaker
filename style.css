@@ -1,42 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 600px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: 24px;
-  padding: 10px 0;
-}
-
-.input-field {
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.input-field label {
-  display: inline-block;
-  font-size: 18px;
-  padding: 0 10px;
-}
-
-input[type="text"] {
-  font-size: 18px;
-  padding: 10px 20px;
-  width: 100%;
-  border: none;
-  background: #fff;
-  outline: none;
+#plain-text, #morse-code {
+  font-family: monospace;
+  font-size: 12px;
 }
